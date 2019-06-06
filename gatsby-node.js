@@ -45,7 +45,10 @@ exports.onCreateNode = async ({
   const parsedContent = JSON.parse(content)
 
   if (_.isArray(parsedContent)) {
-    parsedContent.forEach((obj, i) => {
+    var i = 0
+    while (i < parsedContent.length) {
+      var obj = parsedContent[i]
+      i++
       transformObject(
         obj,
         obj.id && typeof obj.id === "string"
@@ -53,7 +56,8 @@ exports.onCreateNode = async ({
           : createNodeId(`${node.id} [${i}] >>> JSON`),
         getType({ node, object: obj, isArray: true })
       )
-    })
+      console.log(i)
+    }
   } else if (_.isPlainObject(parsedContent)) {
     transformObject(
       parsedContent,
