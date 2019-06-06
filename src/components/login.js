@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import { navigate, StaticQuery, graphql } from "gatsby"
 import { handleLogin, isLoggedIn, getUser } from "../services/auth"
 
