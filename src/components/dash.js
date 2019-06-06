@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "./layout"
 import SEO from "./seo"
-import UserInfo from "./UserInfo"
+import UserInfo from "./userInfo"
 import PatientList from "./patientList"
 import SampleTimeline from "./sampleTimeline"
 
