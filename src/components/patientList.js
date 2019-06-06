@@ -7,15 +7,19 @@ import { faMale, faFemale } from "@fortawesome/free-solid-svg-icons"
 
 const Patient = ({ patient, activePatient }) => {
   const genderIcon = patient.gender === "Male" ? faMale : faFemale
+  const activeStyle =
+    activePatient.pk === patient.pk
+      ? { backgroundColor: "#639", color: "#fff" }
+      : {}
   return (
-    <tr
-      key={patient.pk}
-      style={activePatient.pk === patient.pk ? { backgroundColor: "#ddd" } : {}}
-    >
+    <tr key={patient.pk} style={activeStyle}>
       <td>
-        <Link to={`/app/user/${patient.userId}/patient/${patient.pk}`}>{`${
-          patient.firstname
-        } ${patient.middleInitial} ${patient.lastname}`}</Link>
+        <Link
+          to={`/app/user/${patient.userId}/patient/${patient.pk}`}
+          style={activeStyle}
+        >
+          {`${patient.firstname} ${patient.middleInitial} ${patient.lastname}`}
+        </Link>
       </td>
       <td>
         <FontAwesomeIcon icon={genderIcon} />

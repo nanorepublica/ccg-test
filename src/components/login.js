@@ -6,6 +6,7 @@ class Login extends React.Component {
   state = {
     username: ``,
     password: ``,
+    errorMsg: ``,
   }
 
   handleUpdate = event => {
@@ -18,7 +19,16 @@ class Login extends React.Component {
     event.preventDefault()
     handleLogin(this.state, validUsers.allUsersJson.edges)
     const pk = getUser().pk
-    navigate(`/app/user/${pk}`)
+    if (pk !== undefined) {
+      navigate(`/app/user/${pk}`)
+    } else {
+      this.setState({
+        username: ``,
+        password: ``,
+        errorMsg: "Incorrect Username or Password. Please try again.",
+      })
+      event.target.reset()
+    }
   }
 
   render() {
@@ -48,11 +58,28 @@ class Login extends React.Component {
               marginTop: "200px",
               marginBottom: "200px",
               display: "grid",
-              gridTemplateRows: "auto auto",
+              gridTemplateRows: "auto auto auto",
               gridTemplateColumns: "auto auto auto auto",
             }}
           >
             <h1 style={{ gridColumnStart: 3 }}>Log in</h1>
+            {this.state.errorMsg && (
+              <p
+                style={{
+                  backgroundColor: "#ef9a9a",
+                  border: "1px solid #c62828",
+                  color: "#444",
+                  marginRight: "auto",
+                  padding: "10px",
+                  gridColumnStart: 3,
+                  gridRowStart: 2,
+                  fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif`,
+                }}
+              >
+                {this.state.errorMsg}
+              </p>
+            )}
             <form
               method="post"
               onSubmit={event => {
@@ -60,6 +87,7 @@ class Login extends React.Component {
               }}
               style={{
                 gridColumnStart: 3,
+                gridRowStart: 3,
                 display: "grid",
                 gridTemplateRows: "30px 30px 35px",
                 gridTemplateColumns: "100px 300px",
