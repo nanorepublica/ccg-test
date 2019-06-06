@@ -14,7 +14,7 @@ NB. If the above gatsby commands do not work then install the gatsby cli: `npm i
 
 ## Challenge 1 Notes
 
-- Authentication of sorts is in but unsecure, as I would never do authentication like this in a production environment.
+- Authentication of sorts is in but insecure, as I would never do authentication like this in a production environment.
   It was done this way to leave the original data files intact. Otherwise I would normally set up a backend to expose the data over an API.
   But it does mean a user can only access their data
 - Responsive & aesthetic design,
@@ -23,11 +23,18 @@ NB. If the above gatsby commands do not work then install the gatsby cli: `npm i
   - Variants will need to be handled differently? due to the 1.2 Million line file, ~120,000 objects in the array
   - Gatsby's build process is just to slow in terms of iterating over each object to load into Gatsby
 
-# Challenge 2 Notes
+## Challenge 2 Notes
 
 - Complete! Although not designed for mobile so much as with challenge 1. It wouldn't take much time but I was focusing on the variants data issue
 
-# Challenge 3 Notes
+## Challenge 3 Notes
 
 - Space has been left on the desktop page to render variants, once I had worked out how to load the data into the site.
 - My current thought might loading it just as a file and not transforming it during the build, then using `fetch` to get the data during runtime and render it then.
+- To solve the challenge I would look to implement a sorting/filter functionality which would highlight the variants that meet the criteria
+
+## Other Notes
+
+- Additionally the quality of the components could be improved to pass data around in a slightly more sensible way
+- CSS could also do with some refactoring, using classes to bring a more uniform structure to the site
+- Tests are also required
