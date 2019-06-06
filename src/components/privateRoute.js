@@ -1,6 +1,6 @@
 import React from "react"
 import { navigate } from "gatsby"
-import { isLoggedIn, hasPermission } from "../services/auth"
+import { isLoggedIn, hasPermission, isBrowser } from "../services/auth"
 
 const PrivateRoute = ({ component: Component, location, ...rest }) => {
   // The below conditional checks whether the user is logged in or not
@@ -10,7 +10,7 @@ const PrivateRoute = ({ component: Component, location, ...rest }) => {
     (isLoggedIn() && !hasPermission(rest.userId) && location.pathname !== `/`)
   ) {
     // If the user is not logged in, redirect to the login page.
-    navigate(`/`)
+    isBrowser() && navigate(`/`)
     return null
   }
   return <Component {...rest} />
