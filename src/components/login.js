@@ -43,33 +43,44 @@ class Login extends React.Component {
           }
         `}
         render={data => (
-          <Fragment>
-            <h1>Log in</h1>
+          <div
+            style={{
+              marginTop: "200px",
+              marginBottom: "200px",
+              display: "grid",
+              gridTemplateRows: "auto auto",
+              gridTemplateColumns: "auto auto auto auto",
+            }}
+          >
+            <h1 style={{ gridColumnStart: 3 }}>Log in</h1>
             <form
               method="post"
               onSubmit={event => {
                 this.handleSubmit(event, data)
               }}
+              style={{
+                gridColumnStart: 3,
+                display: "grid",
+                gridTemplateRows: "30px 30px 35px",
+                gridTemplateColumns: "100px 300px",
+                gridGap: "5px 20px",
+              }}
             >
-              <label>
-                Username
-                <input
-                  type="text"
-                  name="username"
-                  onChange={this.handleUpdate}
-                />
-              </label>
-              <label>
-                Password
-                <input
-                  type="password"
-                  name="password"
-                  onChange={this.handleUpdate}
-                />
-              </label>
-              <input type="submit" value="Log In" />
+              <label>Username:</label>
+              <input type="text" name="username" onChange={this.handleUpdate} />
+              <label>Password:</label>
+              <input
+                type="password"
+                name="password"
+                onChange={this.handleUpdate}
+              />
+              <input
+                style={{ gridColumnStart: "span 2", alignSelf: "end" }}
+                type="submit"
+                value="Log In"
+              />
             </form>
-          </Fragment>
+          </div>
         )}
       />
     )

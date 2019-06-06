@@ -10,9 +10,12 @@ const BasicDash = ({ data, patientId }) => {
   const user = data.usersJson
   const patients = data.allPatientsJson
   const samples = data.allSamplesJson
-  const acitvePatient = patients.edges.find(
-    ({ node }) => node.pk === parseInt(patientId)
-  ).node
+  var acitvePatient = {}
+  if (patientId !== undefined) {
+    acitvePatient = patients.edges.find(
+      ({ node }) => node.pk === parseInt(patientId)
+    ).node
+  }
   return (
     <Layout>
       <SEO title="Home" />

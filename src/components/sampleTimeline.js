@@ -62,6 +62,8 @@ const SampleTimeline = ({ samples, activePatient }) => {
         </div>
       </>
     )
+  } else {
+    return <div />
   }
 }
 
