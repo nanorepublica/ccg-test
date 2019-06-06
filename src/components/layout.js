@@ -9,6 +9,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeart } from "@fortawesome/free-solid-svg-icons"
+
 import Header from "./header"
 import "./layout.css"
 
@@ -28,17 +31,18 @@ const Layout = ({ children }) => (
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
-            margin: `0 auto`,
-            maxWidth: 960,
+            margin: `0 20px`,
+            maxWidth: "100vw",
             padding: `0px 1.0875rem 1.45rem`,
             paddingTop: 0,
           }}
         >
           <main>{children}</main>
           <footer>
-            © {new Date().getFullYear()}, Built with
+            © {new Date().getFullYear()}, Built with{" "}
+            <FontAwesomeIcon icon={faHeart} />
             {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+            using <a href="https://www.gatsbyjs.org">Gatsby</a>
           </footer>
         </div>
       </>

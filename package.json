@@ -5,6 +5,10 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-regular-svg-icons": "^5.9.0",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "gatsby": "^2.8.2",
     "gatsby-image": "^2.1.2",
     "gatsby-plugin-manifest": "^2.1.1",
@@ -16,10 +20,21 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-timeline-scribble": "^1.0.14"
   },
   "devDependencies": {
-    "prettier": "^1.17.1"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.7.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "lighthouse": "^3.2.1",
+    "prettier": "^1.14.3"
   },
   "keywords": [
     "gatsby"
@@ -28,10 +43,13 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "format-output": "prettier src/**/*.{js,jsx}",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "lint-errors": "eslint src/**/*.{js,jsx} --quiet",
+    "lint": "eslint src/**/*.{js,jsx}"
   },
   "repository": {
     "type": "git",

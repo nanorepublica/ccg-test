@@ -582,7 +582,7 @@ th {
 }
 th:first-child,
 td:first-child {
-  padding-left: 0;
+  padding-left: 0.5rem;
 }
 th:last-child,
 td:last-child {

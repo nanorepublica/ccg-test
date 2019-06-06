@@ -1,20 +1,26 @@
 import React from "react"
 import { Link } from "gatsby"
+import { Router } from "@reach/router"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Login from "../components/login"
+
+import { getUser, isLoggedIn } from "../services/auth"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <h1>Hello {isLoggedIn() ? getUser().username : "world"}!</h1>
+
+    {isLoggedIn() ? (
+      <p>
+        You are logged in, so check your{" "}
+        <Link to={`/app/user/${getUser().pk}`}>dashboard</Link>
+      </p>
+    ) : (
+      <Router>
+        <Login path="/" />
+      </Router>
+    )}
   </Layout>
 )
 
